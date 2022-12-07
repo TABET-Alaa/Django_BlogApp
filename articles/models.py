@@ -1,7 +1,10 @@
 from django.db import models
 
 class Article(models.Model):
-    title = models.CharField(maxlength="120")
+    title = models.CharField(max_length=120)
     slug = models.SlugField()
     body = models.TextField()
-    date = models.DataTimeField(auto_now_add=True)
+    date = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.title
